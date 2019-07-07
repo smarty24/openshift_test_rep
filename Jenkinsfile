@@ -1,13 +1,5 @@
 pipeline {
     agent any 
-<<<<<<< HEAD
-
-
-    environment {
-        GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref @")
-    }
-=======
->>>>>>> 85ca6121cf7b790abbe9dc44b02ba65d2d8dbc70
     stages {
         stage('Set environment path') { 
             steps {
