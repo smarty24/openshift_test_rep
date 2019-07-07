@@ -9,6 +9,9 @@ pipeline {
                 // 
                 echo 'Build Stage'
                 echo GET_BRANCH_NAME
+                script{
+                    sh "pwd"
+                }
             }
         }
         stage('Test') { 
