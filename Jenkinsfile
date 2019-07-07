@@ -2,10 +2,12 @@ pipeline {
     agent any 
 
     environment {
-        GET_BRANCH_PATH = sh(returnStdout: true, script: 'pwd').trim()
-        GET_BRANCH_NAME = sh(returnStdout: true, script: "cd ${GET_BRANCH_PATH} && git rev-parse --abbrev-ref HEAD").trim()
+        GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
     }
     stages {
+        stage (SCM checkout) {
+            env.GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
+        }
         stage('Build') { 
             steps {
                 // 
