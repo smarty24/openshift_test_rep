@@ -3,9 +3,16 @@ pipeline {
 
 
     environment {
-        GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
+        GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref").trim()
     }
     stages {
+        stage('Darative: Checkout scm') { 
+            steps {
+                // 
+                echo 'Build Stage'
+                echo GET_BRANCH
+            }
+        }
         stage('Build') { 
             steps {
                 // 
