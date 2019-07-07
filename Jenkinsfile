@@ -1,12 +1,7 @@
-pipeline {environment {
-        GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
-    }
+pipeline {
     agent any 
-
-
-  
     stages {
-        stage('Declarative: Checkout SCM') { 
+        stage('Set environment path') { 
             steps {
                 // 
                 script {
@@ -14,7 +9,6 @@ pipeline {environment {
                     env.GIT_BRANCH_NAME=GIT_BRANCH_PATH.split('remotes/origin/')[1]
                     echo env.GIT_BRANCH_NAME
                 }
-                echo env.GIT_BRANCH_NAME
             }
         }
         stage('Build') { 
@@ -22,6 +16,7 @@ pipeline {environment {
                 // 
                 echo 'Build Stage'
                 echo GET_BRANCH_NAME
+                echo env.GIT_BRANCH_NAME
             }
         }
         stage('Test') { 
