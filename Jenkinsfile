@@ -3,7 +3,7 @@ pipeline {
 
 
     environment {
-        GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
+        GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --is-inside-work-tree --abbrev-ref HEAD").trim()
     }
     stages {
         stage('Build') { 
@@ -12,7 +12,7 @@ pipeline {
                 echo 'Build Stage'
                 echo GET_BRANCH_NAME
                 echo GIT_BRANCH
-                echo GIT_LOCAL_BRANCH
+
                 script{
                     sh "ls -l && git rev-parse --abbrev-ref --remote"
                 }
