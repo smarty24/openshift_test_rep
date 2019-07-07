@@ -1,23 +1,19 @@
 pipeline {
     agent any 
 
+
     environment {
-        GET_BRANCH_NAME = ""
+        GET_BRANCH_PATH = sh(returnStdout: true, script: 'pwd').trim()
+        GET_BRANCH_NAME = sh(returnStdout: true, script: "cd ${GET_BRANCH_PATH}@script && git rev-parse --abbrev-ref HEAD").trim()
     }
     stages {
-        stage ('SCM checkout') {
-            steps {
-                    GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
-
-            }
-        }
         stage('Build') { 
             steps {
                 // 
                 echo 'Build Stage'
                 echo GET_BRANCH_NAME
                 script{
-                    sh "git show-ref --tags -d"
+                    sh "pwd"
                 }
             }
         }
