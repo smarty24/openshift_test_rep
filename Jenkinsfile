@@ -21,6 +21,7 @@ pipeline {
             steps {
                 // 
                 echo 'Test Stage'
+                echo GIT_BRANCH_NAME
             }
         }
         stage('Deploy') { 
