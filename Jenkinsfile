@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     stages {
-        stage('Set environment path') { 
+        stage('Set path') { 
             steps {
                 // 
                 script {
