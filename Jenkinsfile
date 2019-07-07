@@ -11,11 +11,6 @@ pipeline {
                 // 
                 echo 'Build Stage'
                 echo GET_BRANCH_NAME
-                echo GIT_BRANCH
-
-                script{
-                    sh 'ls -l && git rev-parse --abbrev-ref HEAD'
-                }
             }
         }
         stage('Test') { 
