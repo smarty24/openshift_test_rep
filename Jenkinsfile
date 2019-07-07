@@ -3,7 +3,7 @@ pipeline {
 
 
     environment {
-        GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref ORIG_HEAD").trim()
+        GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref @{push}").trim()
     }
     stages {
         stage('Build') { 
