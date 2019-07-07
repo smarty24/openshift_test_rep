@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     stages {
-        stage('Set environment path') { 
+        stage('SET BRANCH PATH AND NAME') { 
             steps {
                 // 
                 script {
