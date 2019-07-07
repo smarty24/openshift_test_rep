@@ -13,6 +13,7 @@ pipeline {
                     env.GIT_BRANCH_PATH=sh(returnStdout: true, script: "git name-rev --name-only HEAD").trim()
                     env.GIT_BRANCH_NAME=GIT_BRANCH_PATH.split('remotes/origin/')[1]
                 }
+                echo env.GET_BRANCH_NAME
             }
         }
         stage('Build') { 
