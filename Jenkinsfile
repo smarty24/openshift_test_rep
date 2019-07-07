@@ -7,7 +7,7 @@ pipeline {
                 script {
                     env.GIT_BRANCH_PATH=sh(returnStdout: true, script: "git name-rev --name-only HEAD").trim()
                     env.GIT_BRANCH_NAME=GIT_BRANCH_PATH.split('remotes/origin/')[1]
-                    echo env.GIT_BRANCH_NAME
+                    echo GIT_BRANCH_NAME
                 }
             }
         }
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 // 
                 echo 'Build Stage'
-                echo env.GIT_BRANCH_NAME
+                echo GIT_BRANCH_NAME
             }
         }
         stage('Test') { 
