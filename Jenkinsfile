@@ -10,21 +10,21 @@ pipeline {
                 }
             }
         }
-        stage('Build') { 
+        stage('Build Dev') { 
             steps {
                 // 
                 echo 'Build Stage'
                 echo GIT_BRANCH_NAME
             }
         }
-        stage('Test') { 
+        stage('Test Dev') { 
             steps {
                 // 
                 echo 'Test Stage'
                 echo GIT_BRANCH_NAME
             }
         }
-        stage('Deploy') { 
+        stage('Deploy Dev') { 
             steps {
                 // 
                 echo 'Deploy Stage END'
