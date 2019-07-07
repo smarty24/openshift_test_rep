@@ -19,7 +19,7 @@ pipeline {
             steps {
                 // 
                 echo 'Build Stage'
-                echo GET_BRANCH_NAME
+                echo env.GET_BRANCH_NAME
             }
         }
         stage('Test') { 
