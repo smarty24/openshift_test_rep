@@ -10,7 +10,7 @@ pipeline {
             steps {
                 // 
                 echo 'Build Stage'
-                echo GET_BRANCH
+                echo GIT_BRANCH
             }
         }
         stage('Build') { 
