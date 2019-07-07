@@ -1,9 +1,6 @@
 pipeline {
     agent any 
 
-    environment {
-        GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
-    }
     stages {
         stage ('SCM checkout') {
             steps {
