@@ -6,7 +6,10 @@ pipeline {
     }
     stages {
         stage ('SCM checkout') {
-            env.GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
+            steps {
+                            env.GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
+
+            }
         }
         stage('Build') { 
             steps {
