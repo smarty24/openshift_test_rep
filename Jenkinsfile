@@ -6,7 +6,7 @@ pipeline {environment {
 
   
     stages {
-        stage('Set Git path name') { 
+        stage('Declarative: Checkout SCM') { 
             steps {
                 // 
                 script {
