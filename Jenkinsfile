@@ -12,7 +12,7 @@ pipeline {
                 echo 'Build Stage'
                 echo GET_BRANCH_NAME
                 echo GIT_BRANCH
-                GIT_LOCAL_BRANCH
+                echo GIT_LOCAL_BRANCH
                 script{
                     sh "ls -l && git rev-parse --abbrev-ref --remote"
                 }
