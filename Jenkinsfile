@@ -6,11 +6,13 @@ pipeline {
         GET_BRANCH_NAME = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
     }
     stages {
-        stage('Darative: Checkout scm') { 
+        stage('Set Git path name') { 
             steps {
                 // 
-                echo 'Build Stage'
-                echo GIT_BRANCH
+                script {
+                    env.GIT_BRANCH_PATH=sh(returnStdout: true, script: "git name-rev --name-only HEAD").trim()
+                    env.GIT_BRANCH_NAME=GIT_BRANCH_PATH.split('remotes/origin/')[1]
+                }
             }
         }
         stage('Build') { 
