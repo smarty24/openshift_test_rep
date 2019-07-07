@@ -15,7 +15,6 @@ pipeline {
             steps {
                 // 
                 echo 'Build Stage'
-                echo GET_BRANCH_NAME
                 echo env.GIT_BRANCH_NAME
             }
         }
