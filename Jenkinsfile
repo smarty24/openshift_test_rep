@@ -1,10 +1,8 @@
 pipeline {
     agent any 
 
-    script {
-        GET_BRANCH_PATH = sh(returnStdout: true, script: 'pwd').trim()
-    }
     environment {
+        GET_BRANCH_PATH = sh(returnStdout: true, script: 'pwd').trim()
         GET_BRANCH_NAME = sh(returnStdout: true, script: "cd ${GET_BRANCH_PATH} && git rev-parse --abbrev-ref HEAD").trim()
     }
     stages {
