@@ -1,6 +1,10 @@
 pipeline {
     agent any 
 
+    environment {
+        GET_BRANCH_NAME_1 = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
+    }
+
     stages {
         stage('Set path') { 
             steps {
@@ -29,10 +33,6 @@ pipeline {
             steps {
                 // 
                 echo 'Deploy Stage END'
-                
-                script {
-                    env.GET_BRANCH_NAME_1 = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
-                }
                 echo GET_BRANCH_NAME_1
             }
         }
