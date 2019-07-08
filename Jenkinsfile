@@ -11,7 +11,7 @@ pipeline {
             steps {
                 // 
                 echo 'Build Stage'
-                echo GIT_BRANCH_NAME
+                //echo GIT_BRANCH_NAME
             }
         }
         stage('Test Master') { 
